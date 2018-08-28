@@ -27,7 +27,7 @@ class Parser {
         $validProxies = [];
         foreach ($json as $items) {
             if (Helper::validateProxyIpPort($items['addr'])) {
-                $validProxies[] = $items['addr'];
+                $validProxies[] = $items;
             }
         }
         return $validProxies;

@@ -15,3 +15,4 @@ Route::get('/', 'MainController@index');
 Route::get('/check', 'ProxyController@check');
 Route::get('/add', 'ProxyController@add');
 Route::get('/api', 'ApiController@index');
+

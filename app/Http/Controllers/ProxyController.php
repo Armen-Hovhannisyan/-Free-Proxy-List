@@ -60,6 +60,7 @@ class ProxyController extends Controller {
     public function add() {
         try {
             $proxies = Parser::getProxies();
+
             foreach ($proxies as $item) {
                 Proxy::addNewProxy($item);
             }

@@ -13,7 +13,19 @@ class Proxy extends Model {
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     public static function addNewProxy($proxy) {
-        return self::updateOrCreate(['proxy' => $proxy]);
+        $port=explode(':',$proxy['addr']);
+        $port=$port[1];
+
+        return self::updateOrCreate(['proxy' => $proxy['addr']],
+        [ "ip"=>$proxy['ip'],
+         "port"=>$port,
+         "country"=>$proxy['addr_geo_country'],
+         "type"=>$proxy['type'],
+         "anonymity"=>$proxy['kind'],
+        "speed"=>$proxy['timeout']]
+
+        );
+
     }
 
     public static function getUncheckedProxy($limit = 10) {
